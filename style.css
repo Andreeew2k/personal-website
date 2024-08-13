@@ -1,63 +1,142 @@
+/* Base Styles */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #000;
+    height: 100vh; /* Ensures the body takes up 100% of the viewport height */
+    overflow: hidden; /* Prevents scrolling */
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #007bff;
-    padding: 10px 0;
-    text-align: center;
+    background-color: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: white;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-nav {
-    margin-top: 10px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.about-me {
+.header-left,
+.header-right {
     display: flex;
     align-items: center;
 }
 
-.about-me img {
+.header-left .social-icon,
+.header-right a {
+    margin: 0 15px;
+    font-size: 1.2em;
+    color: #fff;
+    text-decoration: none;
+    transition: font-weight 0.3s ease; /* Smooth transition for bold effect */
+}
+
+.header-left .social-icon:hover,
+.header-right a:hover {
+    font-weight: bold; /* Makes the text bold when hovered */
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: flex-start; /* Align content to the left */
+    padding: 350px 20px; /* Add padding to move content away from the top */
+    box-sizing: border-box;
+}
+
+.about-me {
+    text-align: left; /* Align text to the left */
+    max-width: 570px; /* Set a maximum width for the text container */
+    margin-top: 50px; /* Adds extra space from the top */
+    word-wrap: break-word; /* Ensure long words or URLs break properly */
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    /* Adjust header layout for tablets and smaller devices */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-left,
+    .header-right {
+        width: 100%;
+        justify-content: space-around;
+        margin: 10px 0;
+    }
+
+    .header-left .social-icon,
+    .header-right a {
+        margin: 0 10px;
+        font-size: 1.5em;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    .about-me {
+        max-width: 100%; /* Allow content to take full width */
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for mobile devices */
+    header {
+        padding: 10px;
+    }
+
+    .header-left .social-icon,
+    .header-right a {
+        font-size: 1.2em;
+        margin: 0 5px;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .about-me h2 {
+        font-size: 1.5em;
+    }
+
+    .about-me p {
+        font-size: 1em;
+    }
+}
+
+/* Hobby Page Carousel Styles */
+
+.hobby-carousel {
+    height: 100%; /* Full screen height */
+    width: 100%; /* Full screen width */
+    position: relative;
+}
+
+.carousel,
+.carousel-item,
+.carousel-item img {
+    height: 100vh; /* Full screen height */
+    width: 100%; /* Full screen width */
+    object-fit: cover; /* Ensure images cover the entire carousel area */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Adjust width for better accessibility on mobile */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better visibility */
     border-radius: 50%;
-    max-width: 150px;
-    margin-right: 20px;
-}
-
-.description h2 {
-    margin-top: 0;
-}
-
-.description p {
-    margin-top: 10px;
-    line-height: 1.6;
+    padding: 10px;
 }
